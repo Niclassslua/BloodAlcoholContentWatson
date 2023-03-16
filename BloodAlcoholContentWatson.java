@@ -1,49 +1,42 @@
-package uebung01;
-
-import static pr.MakeItSimple.println;
-import static pr.MakeItSimple.readInt;
+package BloodAlcoholContentWatson;
 
 public class BloodAlcoholContentWatson {
 	public static void main(String[] args) {
-		println("XXXX Gebe Masse des aufgenommen Alkohols in Gramm (g) an: ");
-		int a = readInt(); // Eingabe wird gleich "a" gesetzt (wobei "a" ganzahlig ist).
+		println("Specify mass of absorbed alcohol in grams (g): ");
+		int a = Integer.parseInt(System.console().readLine()); // Input is set equal to "a" (where "a" is integer).
 
-		println("Gebe Masse der Person in Kilogram (kg, ganzzahlig) an: ");
-		int m = readInt(); // Eingabe wird gleich "m" gesetzt (wobei "m" ganzahlig ist).
+		println("Specify mass of the person in kilograms (kg, integer): ");
+		int m = Integer.parseInt(System.console().readLine()); // Input is set equal to "m" (where "m" is integer).
 
-		println("Gebe Geschlecht der Person (0 -> Frau, 1 -> Mann) an: ");
-		int gender = readInt(); // Eingabe wird gleich "gender" gesetzt (wobei "gender" ganzahlig ist).
+		println("Specify gender of the person (0 -> woman, 1 -> man): ");
+		int gender = Integer.parseInt(System.console().readLine()); // Input is set equal to "gender" (where "gender" is integer).
 
-		println("Gebe Körpergröße der Person in Centimeter (cm, ganzzahlig) an: ");
-		int height = readInt(); // Eingabe wird gleich "height" gesetzt (wobei "height" ganzahlig ist).
+		println("Specify the height of the person in centimeters (cm, whole number): ");
+		int height = Integer.parseInt(System.console().readLine()); // Input is set equal to "height" (where "height" is integer).
 
-		println("Gebe Alter der Person in Jahren an: ");
-		int age = readInt(); // Eingabe wird gleich "age" gesetzt (wobei "age" ganzahlig ist).
+		println("Specify age of the person in years: ");
+		int age = Integer.parseInt(System.console().readLine()); // Input is set equal to "age" (where "age" is integer).
 
-		double gkw = 0; // "gkw" wird initalisiert als double um sog. "fractional numbers" als Wert
-						// annehmen zu können.
+		double gkw = 0; // " gkw" is initialized as double to accept fractional numbers as value.
 
-		if (gender == 0) { // Wenn das Geschlecht "0" -> Frau ist.
+		if (gender == 0) { // If the gender is "0" -> woman.
 			gkw = -2.097 + 0.1069 * height + 0.2466 * m;
-			double c = (0.8 * a) / (1.055 * gkw); // Formel wird mit allen vorher eingelesenen Variablen angewendet.
+			double c = (0.8 * a) / (1.055 * gkw); // Formula is applied with all previously read variables.
 
-			println("Die Blutalkoholkonzentration beträgt: " + c + " Promille, nach Watson-Formel."); // Blutalkoholkonzentration
+			println("The blood alcohol concentration is: " + c + " per mille, according to Watson's formula."); // Blood alcohol concentration
 																										// wird
 																										// ausgegeben
-		} else if (gender == 1) { // Wenn das Geschlecht "1" -> Mann ist
+		} else if (gender == 1) { // If the gender is "1" -> man.
 			gkw = 2.447 - 0.09516 * age + 0.1074 * height + 0.3362 * m;
-			double c = (0.8 * a) / (1.055 * gkw); // Formel wird mit allen vorher eingelesenen Variablen angewendet.
+			double c = (0.8 * a) / (1.055 * gkw); // Formula is applied with all previously read variables.
 
-			println("Die Blutalkoholkonzentration beträgt: " + c + " Promille, nach Watson-Formel."); // Blutalkoholkonzentration
+			println("The blood alcohol concentration is: " + c + " per mille, according to Watson's formula."); // Blood alcohol concentration
 																										// wird
 																										// ausgegeben
-		} else { // Wenn das Geschlecht alles andere als "0" oder "1" -> nicht Frau oder Mann
-					// ist.
-			println("Geschlecht ungültig! Formel konnte nicht angewendet werden.");
+		} else { // If the gender is anything other than "0" or "1" -> not woman or man.
+			println("Gender invalid! Formula could not be applied.");
 		}
 
-		// Nutzung von "return;" wird durch die Berechnung nach den "gender == 0/1"
-		// Abfragen umgangen.
-
+		// Use of "return;" is bypassed by the calculation after the "gender == 0/1" queries.
 	}
 }
